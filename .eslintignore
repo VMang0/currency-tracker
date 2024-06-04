@@ -1,0 +1,8 @@
+node_modules
+/.git
+yarn.lock
+/.eslintrc.js
+babel.config.js
+prettier.config.js
+tsconfig.json
+webpack.config.js
