@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = (env, argv) => {
   const isProduction = argv.mode === 'production';
@@ -9,7 +10,7 @@ module.exports = (env, argv) => {
     entry: './src/index.tsx',
     output: {
       filename: 'bundle.js',
-      path: path.resolve(__dirname, 'dist')
+      path: path.resolve(__dirname, 'dist'),
     },
     resolve: {
       extensions: ['.ts', '.tsx', '.js'],
@@ -22,6 +23,7 @@ module.exports = (env, argv) => {
         '@utils': path.resolve(__dirname, 'src/utils'),
         '@styled': path.resolve(__dirname, 'src/styled'),
         '@redux': path.resolve(__dirname, 'src/redux'),
+        '@routes': path.resolve(__dirname, 'src/routes'),
       }
     },
     module: {
@@ -41,7 +43,7 @@ module.exports = (env, argv) => {
         },
         {
           test: /\.svg$/,
-          use: ['@svgr/webpack', 'url-loader']
+          use: ['@svgr/webpack'],
         },
         {
           test: /\.(woff|woff2|eot|ttf|otf)$/,
@@ -54,9 +56,14 @@ module.exports = (env, argv) => {
       static: {
         directory: path.resolve(__dirname, 'dist'),
       },
+      historyApiFallback: true,
       hot: true,
       open: true,
       port: 3000
+    },
+    optimization: {
+      minimize: isProduction,
+      minimizer: [new TerserPlugin()],
     },
     plugins: [
       new HtmlWebpackPlugin({

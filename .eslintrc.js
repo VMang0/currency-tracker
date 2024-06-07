@@ -42,6 +42,7 @@ module.exports = {
           ['@utils', './src/utils'],
           ['@styled', './src/styled'],
           ['@redux', './src/redux'],
+          ['@routes', './src/routes'],
         ],
         extensions: ['.ts', '.tsx', '.js', '.jsx'],
       },
@@ -71,5 +72,9 @@ module.exports = {
         'newlines-between': 'always',
       }
     ],
+    'import/prefer-default-export': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'no-shadow': 'off',
+    'no-param-reassign': 'off',
   },
 };

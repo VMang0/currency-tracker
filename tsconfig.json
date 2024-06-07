@@ -15,7 +15,8 @@
       "@hooks/*": ["src/hooks/*"],
       "@utils/*": ["src/utils/*"],
       "@styled/*": ["src/styled/*"],
-      "@redux/*": ["src/redux/*"]
+      "@redux/*": ["src/redux/*"],
+      "@routes/*": ["src/routes/*"],
     },
     "jsx": "react"
   },
