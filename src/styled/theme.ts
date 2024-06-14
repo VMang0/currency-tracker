@@ -1,10 +1,36 @@
 import { DefaultTheme } from 'styled-components';
 
-const mainTheme: DefaultTheme = {
+import { ThemeType } from '@styled/types';
+
+export const theme: ThemeType = {
   colors: {
-    greenMain: '#00BC4F',
-    greenSecondary: '#00BC4F4D',
-    gradientText: 'linear-gradient(92deg, #00ce2c 0%, #aedf23 49.26%, #a3dc00 100%)',
+    green: {
+      DEFAULT: '#00BC4F',
+      100: '#aedf23',
+      200: '#a3dc00',
+      300: '#00ce2c',
+      400: '#00BC4F4D',
+    },
+    gray: {
+      DEFAULT: '#fcfcfc',
+      200: '#f1f1f1',
+      300: '#e0e0e5',
+      400: '#d9d9dd',
+      500: '#898989',
+      600: '#737373',
+      700: '#4f4f4f',
+      800: '#474747',
+    },
+    white: {
+      DEFAULT: '#fff',
+    },
+    black: {
+      DEFAULT: '#030304',
+      50: '#a7b2c3',
+      100: '#6c7a89',
+      200: '#383842',
+      900: '#202025',
+    },
   },
   gap: {
     xxs: '10px',
@@ -25,7 +51,7 @@ const mainTheme: DefaultTheme = {
     xl: '38px',
     xxl: '60px',
     xxxl: '76px',
-    ex: '90px',
+    exl: '90px',
   },
   width: {
     max: '1440px',
@@ -39,31 +65,55 @@ const mainTheme: DefaultTheme = {
     xl: '345px',
   },
   lineHeight: {
+    xs: '100%',
     s: '120%',
-    m: '187%',
+    m: '150%',
+    l: '187%',
+  },
+  spaces: {
+    xxxs: '10px',
+    xxs: '15px',
+    xs: '25px',
+    s: '30px',
+    m: '33px',
+    l: '40px',
+    xl: '45px',
+    xxl: '50px',
+    xxxl: '90px',
+    exl: '100px',
   },
 };
 
 export const lightTheme: DefaultTheme = {
-  ...mainTheme,
-  body: '#f1f1f1',
-  text: {
-    main: '#030304',
-    secondary: '#4f4f4f',
-    dark: '#737373',
-    percent: '#6c7a89',
+  ...theme,
+  themeColors: {
+    DEFAULT: theme.colors.gray.DEFAULT,
+    100: theme.colors.gray[300],
+    200: theme.colors.gray.DEFAULT,
+    300: theme.colors.gray[400],
+    400: theme.colors.gray[600],
+    500: theme.colors.black[100],
+    600: theme.colors.gray[700],
+    700: theme.colors.black.DEFAULT,
   },
-  gradientBg: 'linear-gradient(45deg, rgba(241,241,241,1) 9%, rgba(0,188,79,0.1803571770505077) 50%, rgba(241,241,241,1) 89%);',
+  gradient: {
+    100: 'linear-gradient(45deg, #fcfcfc 9%, rgba(0,188,79,0.1803571770505077) 50%, #fcfcfc 89%)',
+  },
 };
 
 export const darkTheme: DefaultTheme = {
-  ...mainTheme,
-  body: '#030304',
-  text: {
-    main: '#fff',
-    secondary: '#d9d9d9',
-    dark: '#898989',
-    percent: '#a7b2c3',
+  ...theme,
+  themeColors: {
+    DEFAULT: '#030304',
+    100: theme.colors.black[900],
+    200: theme.colors.black[200],
+    300: theme.colors.gray[800],
+    400: theme.colors.gray[500],
+    500: theme.colors.black[50],
+    600: theme.colors.gray[400],
+    700: theme.colors.white.DEFAULT,
   },
-  gradientBg: 'linear-gradient(50deg, rgba(3,3,4,1) 9%, rgba(0,188,79,0.1803571770505077) 50%, rgba(3,3,4,1) 89%)',
+  gradient: {
+    100: 'linear-gradient(50deg, rgba(3,3,4,1) 9%, rgba(0,188,79,0.1803571770505077) 50%, rgba(3,3,4,1) 89%)',
+  },
 };

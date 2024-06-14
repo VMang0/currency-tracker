@@ -6,7 +6,7 @@ type ThemeState = {
   theme: string;
 };
 
-const themeData = localStorage.getItem('theme') || Theme.DARK;
+const themeData = JSON.parse(localStorage.getItem('theme')) || Theme.DARK;
 
 const initialState: ThemeState = {
   theme: themeData,
