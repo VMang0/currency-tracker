@@ -3,17 +3,18 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { CurrencyCard } from '@components/CurrencyCard';
+import { CurrencyModal } from '@components/CurrencyModal';
 import { Loader } from '@components/Loader';
-import { CardListWrapper, SectionName } from '@pages/Home/styled';
+import { CurrencyCardList } from '@pages/Home/CardList';
+import { CurrencyConverter } from '@pages/Home/CurrencyConverter';
+import { SectionName } from '@pages/Home/styled';
 import { getCurrency } from '@redux/actions/currency';
-import { currenciesSelector, isLoadingSelector } from '@redux/slices/currencySlice';
+import { isLoadingSelector } from '@redux/slices/currencySlice';
 import { AppDispatch } from '@redux/store';
 import { FlexColumn } from '@styled/components/layout';
 
 export const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const currencies = useSelector(currenciesSelector);
   const isLoading = useSelector(isLoadingSelector);
 
   const getCurrencies = async () => {
@@ -25,9 +26,7 @@ export const Home = () => {
   };
 
   useEffect(() => {
-    if (!currencies) {
-      getCurrencies();
-    }
+    getCurrencies();
   }, []);
 
   return (
@@ -36,12 +35,12 @@ export const Home = () => {
       {!isLoading && (
         <>
           <SectionName>Quotes</SectionName>
-          <CardListWrapper>
-            {currencies &&
-              Object.keys(currencies).map((item) => <CurrencyCard key={item} currency={currencies[item]} />)}
-          </CardListWrapper>
+          <CurrencyCardList />
         </>
       )}
+      <CurrencyModal>
+        <CurrencyConverter />
+      </CurrencyModal>
     </FlexColumn>
   );
 };
