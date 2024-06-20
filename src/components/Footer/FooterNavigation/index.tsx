@@ -9,8 +9,7 @@ import { Text } from '@styled/components/typography ';
 export const FooterNavigation = () => (
   <FooterNavigationStyled>
     {footerLabels.map((label, index) => (
-      // eslint-disable-next-line react/no-array-index-key
-      <FlexColumn key={index}>
+      <FlexColumn key={label}>
         <Text $lineHeight="s">{label}</Text>
         <NavigationList>
           <NavigationItem>

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, ReactNode, FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { BackgroundStyled } from '@components/CurrencyModal/styled';
@@ -6,7 +6,11 @@ import { Portal } from '@components/Portal';
 import { closeModal, isModalOpenSelector } from '@redux/slices/windowSlice';
 import { AppDispatch } from '@redux/store';
 
-export const CurrencyModal = ({ children }) => {
+type CurrencyModalProps = {
+  children: ReactNode;
+};
+
+export const CurrencyModal: FC<CurrencyModalProps> = ({ children }) => {
   const dispatch = useDispatch<AppDispatch>();
   const isOpen = useSelector(isModalOpenSelector);
 

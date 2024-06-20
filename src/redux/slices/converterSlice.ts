@@ -13,7 +13,7 @@ const initialState: ConverterType = {
   isLoading: false,
   currencyFrom: 'USD',
   currencyTo: 'USD',
-  ratio: 0,
+  ratio: 1,
 };
 
 const converterSlice = createSlice<ConverterType, SliceCaseReducers<ConverterType>>({
@@ -42,7 +42,6 @@ const converterSlice = createSlice<ConverterType, SliceCaseReducers<ConverterTyp
   },
 });
 
-export const isLoadingSelector = (state) => state.converter.isLoading;
 export const currencyFromSelector = (state) => state.converter.currencyFrom;
 export const currencyToSelector = (state) => state.converter.currencyTo;
 export const ratioSelector = (state) => state.converter.ratio;

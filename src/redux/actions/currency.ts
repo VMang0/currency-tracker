@@ -1,11 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { data1, data2 } from '@redux/actions/data';
+import { CurrenciesType, LatestCurrenciesType } from '@types/currency';
 import { currencyAxios } from '@utils/axios';
 
 export type CurrencyResponse = {
-  latestCurrencies: object;
-  currencies: object;
+  latestCurrencies: LatestCurrenciesType;
+  currencies: CurrenciesType;
 };
 
 export type RejectedResponse = {
@@ -21,9 +21,9 @@ export const getCurrency = createAsyncThunk<CurrencyResponse, void, { rejectValu
   'currency/get',
   async (_, { rejectWithValue }) => {
     try {
-      // const responseCurrencies = await currencyAxios.get(urlCurrencies);
-      // const responseCurrenciesLatest = await currencyAxios.get(urlCurrenciesLatest);
-      return { latestCurrencies: data1, currencies: data2 };
+      const responseCurrencies = await currencyAxios.get(urlCurrencies);
+      const responseCurrenciesLatest = await currencyAxios.get(urlCurrenciesLatest);
+      return { latestCurrencies: responseCurrenciesLatest.data, currencies: responseCurrencies.data.data };
     } catch (e) {
       return rejectWithValue(e.response.data);
     }
@@ -39,7 +39,7 @@ export const convertCurrency = createAsyncThunk<
     const responseCurrencies = await currencyAxios.get(
       `/latest?apikey=${currencyApiKey}&currencies=${currencyTo}&base_currency=${currencyFrom}`,
     );
-    return responseCurrencies.data.data[currencyTo].value.toFixed(3);
+    return responseCurrencies.data.data[currencyTo].value;
   } catch (e) {
     return rejectWithValue(e.response.data);
   }

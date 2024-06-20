@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 
 import {
   ArrowStyled,
@@ -8,7 +8,20 @@ import {
   SelectStyled,
 } from '@components/Select/styled';
 
-export const Select = ({ options, setChooseItem, initialOption }) => {
+import { DATA_TEST_ID } from '../../../cypress/e2e/data.ts';
+
+type OptionType = {
+  value: string;
+  label: string;
+};
+
+type SelectPropsType = {
+  options: OptionType[];
+  setChooseItem: () => void;
+  initialOption: OptionType;
+};
+
+export const Select: FC<SelectPropsType> = ({ options, setChooseItem, initialOption }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(initialOption);
 
@@ -23,15 +36,19 @@ export const Select = ({ options, setChooseItem, initialOption }) => {
   };
 
   return (
-    <SelectStyled>
-      <SelectInputStyled $isOpen={isOpen} onClick={() => toggleOptions()}>
+    <SelectStyled data-test-id={DATA_TEST_ID.SELECT}>
+      <SelectInputStyled $isOpen={isOpen} onClick={() => toggleOptions()} data-test-id={DATA_TEST_ID.SELECT_INPUT}>
         {selectedOption.label}
         <ArrowStyled $isOpen={isOpen} />
       </SelectInputStyled>
       {isOpen && (
-        <SelectListStyled>
+        <SelectListStyled data-test-id={DATA_TEST_ID.SELECT_LIST}>
           {options.map((option) => (
-            <SelectListItemStyled key={option.value} onClick={() => handleOptionClick(option)}>
+            <SelectListItemStyled
+              key={option.value}
+              onClick={() => handleOptionClick(option)}
+              data-test-id={`select-item-${option.value}`}
+            >
               {option.label}
             </SelectListItemStyled>
           ))}

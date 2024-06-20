@@ -7,7 +7,7 @@ type CurrencyHistoryParams = {
 };
 
 export const getCurrencyHistory = async ({
-  currency = 'JPY',
+  currency = 'USD',
   dateStart,
   dateEnd,
 }: {
@@ -27,7 +27,6 @@ export const getCurrencyHistory = async ({
     });
     return response.data;
   } catch (error) {
-    console.error('Error fetching currency history:', error);
     throw new Error(error);
   }
 };
