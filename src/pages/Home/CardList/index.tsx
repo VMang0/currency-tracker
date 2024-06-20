@@ -10,7 +10,7 @@ export const CurrencyCardList = () => {
   return (
     <CardListWrapper>
       {currenciesWithoutUSD &&
-        currenciesWithoutUSD.map((item) => <CurrencyCard key={item} currency={currencies[item]} />)}
+        currenciesWithoutUSD.map((item) => <CurrencyCard key={item} cardData={currencies[item]} />)}
     </CardListWrapper>
   );
 };

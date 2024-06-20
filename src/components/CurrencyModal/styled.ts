@@ -8,5 +8,5 @@ export const BackgroundStyled = styled.div`
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(2px);
-  z-index: 2;
+  z-index: 4;
 `;
