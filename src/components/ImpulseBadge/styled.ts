@@ -24,7 +24,7 @@ export const CircleStyled = styled.div`
     margin-left: -100%;
     margin-top: -100%;
     border-radius: 50%;
-    background-color: ${({ theme }) => theme.colors.greenMain};
+    background-color: ${({ theme }) => theme.colors.green.DEFAULT};
     -webkit-animation: pulse-ring 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
     animation: pulse-ring 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
   }
@@ -36,7 +36,7 @@ export const CircleStyled = styled.div`
     display: block;
     width: 100%;
     height: 100%;
-    background-color: ${({ theme }) => theme.colors.greenMain};
+    background-color: ${({ theme }) => theme.colors.green.DEFAULT};
     border-radius: 15px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
     -webkit-animation: pulse-dot 1.25s cubic-bezier(0.455, 0.03, 0.515, 0.955) -0.4s infinite;

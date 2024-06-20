@@ -12,14 +12,14 @@ export const Footer = () => (
           <LogoStyled />
           <SubTitle size="xs">Modsen Currency Tracker</SubTitle>
         </LogoWrapperStyled>
-        <Text $lineHeight="s" size="xs" $isLeftAlign>
+        <Text size="xs" $isLeftAlign>
           Since then, the company has grown organically to. Starsup is the worlds largest trading platform, with $12
           billion worth of currency trading and 500,000 tickets sold daily to tens of thousands of traders worldwide.
         </Text>
       </FlexColumn>
       <FooterNavigation />
     </FooterContentStyled>
-    <Text color="dark" size="xs">
+    <Text color="400" size="xs">
       Startsup © Vmang0 2023-2024, All Rights Reserved
     </Text>
   </FooterStyled>

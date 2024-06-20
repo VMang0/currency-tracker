@@ -26,6 +26,6 @@ export const NavigationItem = styled.li`
   font-weight: 400;
   font-size: ${({ theme }) => theme.fontSize.xs};
   a {
-    color: ${({ theme }) => theme.text.dark};
+    color: ${({ theme }) => theme.themeColors[400]};
   }
 `;

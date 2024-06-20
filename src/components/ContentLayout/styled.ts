@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { device } from '@styled/breakPoints';
+
 export const ContentLayoutStyled = styled.div`
   display: flex;
   min-height: 100vh;
@@ -11,13 +13,19 @@ export const ContentLayoutStyled = styled.div`
 `;
 
 export const PageWrapperStyled = styled.main`
+  width: 100%;
   display: flex;
   margin: 0 auto;
   align-items: center;
+  box-sizing: border-box;
   flex-direction: column;
   justify-content: center;
   max-width: ${({ theme }) => theme.width.max};
-  padding: 0 30px;
-  width: 100%;
-  box-sizing: border-box;
+  padding: 0 ${({ theme }) => theme.spaces.exl};
+  @media (${device.md}) {
+    padding: 0 ${({ theme }) => theme.spaces.xxl};
+  }
+  @media (${device.sm}) {
+    padding: 0 ${({ theme }) => theme.spaces.xxxs};
+  }
 `;

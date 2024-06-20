@@ -30,7 +30,7 @@ export const SelectListStyled = styled.ul`
   top: 44px;
   width: 100%;
   position: absolute;
-  background-color: ${({ theme }) => theme.themeColors[200]};
+  background-color: ${({ theme }) => theme.themeColors[300]};
   border-radius: 18px;
   max-height: 140px;
   overflow-y: auto;
@@ -52,4 +52,7 @@ export const SelectListItemStyled = styled.li`
 
 export const ArrowStyled = styled(ArrowDropUp)`
   width: 20px;
+  path {
+    fill: ${({ theme }) => theme.themeColors[700]};
+  }
 `;

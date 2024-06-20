@@ -3,22 +3,28 @@ import styled from 'styled-components';
 import { device } from '@styled/breakPoints';
 
 export const FooterStyled = styled.footer`
+  width: 100%;
   display: flex;
   margin: auto;
   flex-direction: column;
-  width: 100%;
-  max-width: ${({ theme }) => theme.width.max};
-  padding: 40px 30px;
   box-sizing: border-box;
   gap: ${({ theme }) => theme.gap.l};
+  max-width: ${({ theme }) => theme.width.max};
+  padding: ${({ theme }) => `${theme.spaces.l} ${theme.spaces.exl}`};
+  @media (${device.md}) {
+    padding: 0 ${({ theme }) => theme.spaces.xxl};
+  }
+  @media (${device.sm}) {
+    padding: 0 ${({ theme }) => theme.spaces.xxs};
+  }
 `;
 
 export const FooterContentStyled = styled.div`
   display: flex;
-  gap: ${({ theme }) => theme.gap.xxl};
-  @media (${device.md}) {
+  gap: ${({ theme }) => theme.gap.xl};
+  @media (${device.lg}) {
     flex-wrap: wrap;
-    gap: ${({ theme }) => theme.gap.xl};
+    gap: ${({ theme }) => theme.gap.l};
   }
 `;
 
