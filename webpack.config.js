@@ -24,6 +24,9 @@ module.exports = (env, argv) => {
         '@styled': path.resolve(__dirname, 'src/styled'),
         '@redux': path.resolve(__dirname, 'src/redux'),
         '@routes': path.resolve(__dirname, 'src/routes'),
+        '@services': path.resolve(__dirname, 'src/services'),
+        '@api': path.resolve(__dirname, 'src/api'),
+        '@types': path.resolve(__dirname, 'src/types'),
       }
     },
     module: {
@@ -45,10 +48,6 @@ module.exports = (env, argv) => {
           test: /\.svg$/,
           use: ['@svgr/webpack'],
         },
-        {
-          test: /\.(woff|woff2|eot|ttf|otf)$/,
-          type: 'asset/resource'
-        }
       ]
     },
     devtool: isProduction ? 'source-map' : 'eval-source-map',
