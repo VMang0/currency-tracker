@@ -1,12 +1,21 @@
-import { ImpulseBadge } from '@components/ImpulseBadge';
-import { LastUpdatedStyled } from '@components/WelcomeSection/LastUpdated/styled';
-import { Text } from '@styled/components/typography ';
+import { useSelector } from 'react-redux';
 
-export const LastUpdated = () => (
-  <LastUpdatedStyled>
-    <ImpulseBadge />
-    <Text size="m" color="secondary" $lineHeight="s">
-      Last updated at 11:59pm
-    </Text>
-  </LastUpdatedStyled>
-);
+import { ImpulseBadge } from '@components/ImpulseBadge';
+import { lastUpdatedDateSelector } from '@redux/slices/currencySlice';
+import { FlexCenter } from '@styled/components/layout';
+import { Text } from '@styled/components/typography ';
+import { convertTo12HourFormat } from '@utils/helpers/convertTo12HourFormat';
+
+export const LastUpdated = () => {
+  const lastUpdatedDate = useSelector(lastUpdatedDateSelector);
+  const convertedDate = convertTo12HourFormat(lastUpdatedDate);
+
+  return (
+    <FlexCenter $gap="s">
+      <ImpulseBadge />
+      <Text size="m" color="600" $lineHeight="s">
+        Last updated at {convertedDate ?? '11:59pm'}
+      </Text>
+    </FlexCenter>
+  );
+};

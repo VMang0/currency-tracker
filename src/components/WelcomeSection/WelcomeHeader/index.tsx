@@ -11,8 +11,8 @@ export const WelcomeHeader = () => (
     <WelcomeHeaderContentStyled>
       <TitleWrapperStyled $gap="xs">
         <Title>Modsen currency</Title>
-        <Title size="ex">Tracker</Title>
-        <Text size="xs" color="secondary">
+        <Title size="exl">Tracker</Title>
+        <Text size="xs" color="600">
           Quotes for the dollar and other <br /> international currencies.
         </Text>
       </TitleWrapperStyled>
