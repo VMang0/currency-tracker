@@ -42,6 +42,10 @@ module.exports = {
           ['@utils', './src/utils'],
           ['@styled', './src/styled'],
           ['@redux', './src/redux'],
+          ['@routes', './src/routes'],
+          ['@services', './src/services'],
+          ['@api', './src/api'],
+          ['@types', './src/types'],
         ],
         extensions: ['.ts', '.tsx', '.js', '.jsx'],
       },
@@ -53,6 +57,8 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
     'react/prop-types': 'off',
+    'react/state-in-constructor': 'off',
+    'react/jsx-props-no-spreading': 'off',
     'react/function-component-definition': [
       2,
       {
@@ -71,5 +77,10 @@ module.exports = {
         'newlines-between': 'always',
       }
     ],
+    'import/prefer-default-export': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'no-shadow': 'off',
+    'no-param-reassign': 'off',
+    'lines-between-class-members': 'off',
   },
 };

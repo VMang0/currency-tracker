@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "lib": ["es2017", "dom"],
     "target": "ES6",
     "module": "ESNext",
     "strict": true,
@@ -15,9 +16,14 @@
       "@hooks/*": ["src/hooks/*"],
       "@utils/*": ["src/utils/*"],
       "@styled/*": ["src/styled/*"],
-      "@redux/*": ["src/redux/*"]
+      "@redux/*": ["src/redux/*"],
+      "@routes/*": ["src/routes/*"],
+      "@services/*": ["src/services/*"],
+      "@api/*": ["src/api/*"],
+      "@types/*": ["src/types/*"],
     },
     "jsx": "react"
   },
-  "include": ["src"]
+  "include": ["src", "tests", "cypress"],
+  "exclude": ["node_modules", "dist"]
 }
