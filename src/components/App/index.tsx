@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
+import Notification from '@components/Notification';
 import { Theme } from '@constants/theme';
 import { themeSelector } from '@redux/slices/themeSlice';
 import { Routes } from '@routes/routes';
@@ -16,6 +17,7 @@ export const App: FC = () => {
   return (
     <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
       <GlobalStyles />
+      <Notification />
       <BrowserRouter>
         <Routes />
       </BrowserRouter>

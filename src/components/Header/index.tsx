@@ -1,13 +1,17 @@
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Navbar } from '@components/Header/Navbar';
-import { HeaderContentStyled, HeaderStyled } from '@components/Header/styled';
+import { SideMenu } from '@components/Header/SideMenu';
+import { BurgerIconStyled, ButtonsWrapper, HeaderContentStyled, HeaderStyled } from '@components/Header/styled';
+import { ToggleTheme } from '@components/Header/ToggleTheme';
 import { Theme } from '@constants/theme';
 import { useScreenSize } from '@hooks/useScreenSize';
 import { changeTheme, themeSelector } from '@redux/slices/themeSlice';
 import { LogoStyled } from '@styled/components/logo';
 
 export const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const dispatch = useDispatch();
   const { isSmallScreen } = useScreenSize();
   const theme = useSelector(themeSelector);
@@ -18,22 +22,22 @@ export const Header = () => {
     dispatch(changeTheme(newTheme));
   };
 
+  const onToggleMenu = () => setIsMenuOpen((state) => !state);
+
   return (
     <HeaderStyled>
       <HeaderContentStyled>
         <LogoStyled />
         {!isSmallScreen && <Navbar />}
-        <button type="button" onClick={toggleTheme}>
-          {isDarkTheme ? (
-            <span aria-label="Light mode" role="img">
-              🌞
-            </span>
-          ) : (
-            <span aria-label="Dark mode" role="img">
-              🌜
-            </span>
+        <ButtonsWrapper>
+          <ToggleTheme onToggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />
+          {isSmallScreen && (
+            <>
+              <BurgerIconStyled type="button" onClick={onToggleMenu} />
+              <SideMenu onToggleMenu={onToggleMenu} isMenuOpen={isMenuOpen} />
+            </>
           )}
-        </button>
+        </ButtonsWrapper>
       </HeaderContentStyled>
     </HeaderStyled>
   );

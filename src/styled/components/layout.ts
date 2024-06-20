@@ -5,3 +5,10 @@ export const FlexColumn = styled.div`
   flex-direction: column;
   gap: ${({ theme, $gap }) => theme.gap[$gap] || theme.gap.m};
 `;
+
+export const FlexCenter = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: ${({ theme, $gap }) => theme.gap[$gap] || 0};
+`;
