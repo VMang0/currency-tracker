@@ -12,7 +12,7 @@ export const store = configureStore({
     window: windowReducer,
     converter: converterReducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
