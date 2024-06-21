@@ -19,7 +19,7 @@ export default class BankCard extends Component<BankCardPropsType, BankCardState
     filteredOptions: currencyData,
   };
 
-  componentDidUpdate(prevProps: Readonly<unknown>, prevState: BankCardStateType) {
+  componentDidUpdate(prevProps: BankCardPropsType, prevState: BankCardStateType) {
     const { searchQuery } = this.state;
     if (prevState.searchQuery !== searchQuery) {
       const filteredOptions = this.filterCurrencies(searchQuery);
