@@ -69,7 +69,7 @@ module.exports = (env, argv) => {
         template: './src/index.html',
         favicon: path.resolve(__dirname, './src/assets/icons/favicon.svg'),
       }),
-      new Dotenv()
+      new Dotenv({ systemvars: true }),
     ]
   };
 };
