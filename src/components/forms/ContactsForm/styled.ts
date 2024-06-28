@@ -10,7 +10,7 @@ export const FormContainer = styled.div`
   box-sizing: border-box;
 `;
 
-export const StyledForm = styled.form`
+export const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.gap.xxs};

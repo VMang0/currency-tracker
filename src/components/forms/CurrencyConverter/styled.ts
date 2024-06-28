@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CurrencyModalStyled = styled.div`
+export const CurrencyModal = styled.div`
   position: fixed;
   top: 50%;
   left: 50%;
@@ -35,31 +35,8 @@ export const CurrencyWrapper = styled.div`
   gap: 10px;
 `;
 
-export const RatioStyled = styled.p`
-  color: ${({ theme }) => theme.themeColors[400]};
-  font-size: ${({ theme, size }) => theme.fontSize[size] || theme.fontSize.xxxs};
-`;
-
-export const CurrencyDataStyled = styled.div`
-  padding: 0 15px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-`;
-
-export const LineStyled = styled.div`
+export const Line = styled.div`
   width: 100%;
   height: 1px;
   background-color: ${({ theme }) => theme.themeColors[400]};
-`;
-
-export const CurrencyInput = styled.input`
-  width: 100%;
-  background-color: transparent;
-  border: none;
-  color: ${({ theme }) => theme.themeColors[700]};
-  font-size: ${({ theme, size }) => theme.fontSize[size] || theme.fontSize.s};
-  &:focus {
-    outline: none;
-  }
 `;
