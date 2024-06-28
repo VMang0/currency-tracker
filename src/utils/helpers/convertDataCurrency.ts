@@ -1,8 +1,5 @@
-import { useSelector } from 'react-redux';
+import { CurrenciesType } from '@types/currency';
 
-import { currenciesSelector } from '@redux/slices/currencySlice';
-
-export const convertDataCurrency = (value: string) => {
-  const currencies = useSelector(currenciesSelector);
+export const convertDataCurrency = (value: string, currencies: CurrenciesType) => {
   return { value, label: `${value} - ${currencies[value].name_plural || 'unknown'}` };
 };

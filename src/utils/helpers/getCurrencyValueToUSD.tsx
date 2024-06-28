@@ -1,9 +1,9 @@
-import { useSelector } from 'react-redux';
+import { LatestCurrencyType } from '@types/currency';
 
-import { latestCurrenciesSelector } from '@redux/slices/currencySlice';
-
-export const getCurrencyValueToUSD = (code: string): number => {
-  const latestCurrencies = useSelector(latestCurrenciesSelector);
+export const getCurrencyValueToUSD = (
+  code: string,
+  latestCurrencies: Record<string, LatestCurrencyType> | [],
+): number => {
   const findCurrency = Object.keys(latestCurrencies).find((item) => item === code);
   return latestCurrencies[findCurrency]?.value?.toFixed(2);
 };
