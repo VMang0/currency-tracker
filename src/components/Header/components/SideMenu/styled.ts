@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { device } from '@styled/breakPoints';
 
-export const SideMenuStyled = styled.div`
+export const SideMenuWrapper = styled.div`
   top: 0;
   right: 0;
   z-index: 100;
@@ -13,14 +13,14 @@ export const SideMenuStyled = styled.div`
   transform: ${({ $isMenuOpen }) => ($isMenuOpen ? 'translateX(0)' : 'translateX(100%)')};
 `;
 
-export const BlurStyled = styled.div`
+export const Blur = styled.div`
   position: absolute;
   backdrop-filter: blur(2px);
   width: 100%;
   height: 100vh;
 `;
 
-export const SideMenuContentStyled = styled.div`
+export const SideMenuContent = styled.div`
   right: 0;
   position: absolute;
   display: flex;

@@ -3,9 +3,9 @@ import styled from 'styled-components';
 
 import { device } from '@styled/breakPoints';
 
-export const NavBarStyled = styled.nav``;
+export const NavBarWrapper = styled.nav``;
 
-export const LinkGroupStyled = styled.ul`
+export const LinkGroup = styled.ul`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -18,11 +18,11 @@ export const LinkGroupStyled = styled.ul`
   }
 `;
 
-export const LinkItemStyled = styled.li`
+export const LinkItem = styled.li`
   text-align: center;
 `;
 
-export const LinkStyled = styled(Link)`
+export const NavbarLink = styled(Link)`
   display: flex;
   align-items: center;
   flex-direction: row;

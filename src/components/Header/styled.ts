@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-import BurgerIcon from '@assets/icons/burger-icon.svg';
+import Icon from '@assets/icons/burger-icon.svg';
 import { device } from '@styled/breakPoints';
 
-export const HeaderStyled = styled.header`
+export const HeaderWrapper = styled.header`
   top: 0;
   width: 100%;
   position: sticky;
@@ -11,7 +11,7 @@ export const HeaderStyled = styled.header`
   background-color: ${({ theme }) => theme.themeColors.DEFAULT};
 `;
 
-export const HeaderContentStyled = styled.div`
+export const HeaderContent = styled.div`
   display: flex;
   margin: 0 auto;
   align-items: center;
@@ -34,7 +34,7 @@ export const ButtonsWrapper = styled.div`
   gap: ${({ theme }) => theme.gap.xs};
 `;
 
-export const BurgerIconStyled = styled(BurgerIcon)`
+export const BurgerIcon = styled(Icon)`
   cursor: pointer;
   path {
     stroke: ${({ theme }) => theme.themeColors[700]};

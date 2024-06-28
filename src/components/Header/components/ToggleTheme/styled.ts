@@ -4,7 +4,7 @@ type ToggleLabelProps = {
   $isDarkTheme: boolean;
 };
 
-export const ToggleLabelStyled = styled.label<ToggleLabelProps>`
+export const ToggleLabel = styled.label<ToggleLabelProps>`
   cursor: pointer;
   text-indent: -9999px;
   width: 55px;
@@ -37,7 +37,7 @@ export const ToggleLabelStyled = styled.label<ToggleLabelProps>`
     `}
 `;
 
-export const ToggleInputStyled = styled.input`
+export const ToggleInput = styled.input`
   height: 0;
   width: 0;
   visibility: hidden;
