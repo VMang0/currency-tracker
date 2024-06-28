@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { device } from '@styled/breakPoints';
 
-export const FooterNavigationStyled = styled.div`
+export const FooterNavigationWrapper = styled.div`
   display: flex;
   flex-grow: 1;
   justify-content: space-between;

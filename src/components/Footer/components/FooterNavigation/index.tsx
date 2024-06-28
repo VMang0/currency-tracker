@@ -1,13 +1,17 @@
 import { Link } from 'react-router-dom';
 
-import { footerData, footerLabels } from '@components/Footer/FooterNavigation/data';
-import { FooterNavigationStyled, NavigationItem, NavigationList } from '@components/Footer/FooterNavigation/styled';
+import { footerData, footerLabels } from '@components/Footer/components/FooterNavigation/data';
+import {
+  FooterNavigationWrapper,
+  NavigationItem,
+  NavigationList,
+} from '@components/Footer/components/FooterNavigation/styled';
 import { Path } from '@constants/path';
 import { FlexColumn } from '@styled/components/layout';
 import { Text } from '@styled/components/typography ';
 
 export const FooterNavigation = () => (
-  <FooterNavigationStyled>
+  <FooterNavigationWrapper>
     {footerLabels.map((label, index) => (
       <FlexColumn key={label}>
         <Text $lineHeight="s">{label}</Text>
@@ -21,5 +25,5 @@ export const FooterNavigation = () => (
         </NavigationList>
       </FlexColumn>
     ))}
-  </FooterNavigationStyled>
+  </FooterNavigationWrapper>
 );
