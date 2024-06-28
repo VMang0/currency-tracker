@@ -1,20 +1,18 @@
-import { createSlice, SliceCaseReducers } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
-type ModalType = {
-  isOpen: boolean;
+type WindowSliceInitialStateType = {
+  modal: {
+    isOpen: boolean;
+  };
 };
 
-type WindowType = {
-  modal: ModalType;
-};
-
-const initialState: WindowType = {
+const initialState: WindowSliceInitialStateType = {
   modal: {
     isOpen: false,
   },
 };
 
-const windowSlice = createSlice<WindowType, SliceCaseReducers<WindowType>>({
+const windowSlice = createSlice({
   name: 'window',
   initialState,
   reducers: {
@@ -26,8 +24,6 @@ const windowSlice = createSlice<WindowType, SliceCaseReducers<WindowType>>({
     },
   },
 });
-
-export const isModalOpenSelector = (state) => state.window.modal.isOpen;
 
 export const { openModal, closeModal } = windowSlice.actions;
 export default windowSlice.reducer;
