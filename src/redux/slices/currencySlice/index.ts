@@ -1,13 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+import { RejectedResponse } from '@redux/slices/converterSlice/types';
 import { getCurrency } from '@redux/slices/currencySlice/thunks';
 import { CurrencySliceInitialStateType } from '@redux/slices/currencySlice/types';
-import { CurrencyResponseType } from '@types/currency';
+import { CurrencyResponseType } from '@type/currency';
 
 const initialState: CurrencySliceInitialStateType = {
   isLoading: false,
-  latestCurrencies: [],
-  currencies: [],
+  latestCurrencies: {},
+  currencies: {},
   lastUpdatedDate: '',
 };
 
@@ -36,8 +37,10 @@ const currencySlice = createSlice({
     builder
       .addCase(
         getCurrency.fulfilled,
-        (state: CurrencySliceInitialStateType, action: PayloadAction<CurrencyResponseType>) => {
-          updateStateAndLocalStorage(state, action.payload);
+        (state: CurrencySliceInitialStateType, action: PayloadAction<CurrencyResponseType | null>) => {
+          if (action.payload) {
+            updateStateAndLocalStorage(state, action.payload);
+          }
         },
       )
       .addCase(getCurrency.pending, (state: CurrencySliceInitialStateType) => {
@@ -45,8 +48,10 @@ const currencySlice = createSlice({
       })
       .addCase(
         getCurrency.rejected,
-        (state: CurrencySliceInitialStateType, action: PayloadAction<CurrencyResponseType>) => {
-          updateStateAndLocalStorage(state, action.payload);
+        (state: CurrencySliceInitialStateType, action: PayloadAction<RejectedResponse | undefined>) => {
+          if (action?.payload) {
+            updateStateAndLocalStorage(state, action.payload as CurrencyResponseType);
+          }
         },
       );
   },
