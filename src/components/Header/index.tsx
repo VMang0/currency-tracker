@@ -5,7 +5,7 @@ import { SideMenu } from '@components/Header/components/SideMenu';
 import { ToggleTheme } from '@components/Header/components/ToggleTheme';
 import { BurgerIcon, ButtonsWrapper, HeaderContent, HeaderWrapper } from '@components/Header/styled';
 import { useScreenSize } from '@hooks/useScreenSize';
-import { Logo } from '@styled/components/logo';
+import { Logo } from '@styled/components/logo/styled';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

@@ -1,8 +1,6 @@
 import styled, { css } from 'styled-components';
 
-type ToggleLabelProps = {
-  $isDarkTheme: boolean;
-};
+import { ToggleLabelProps } from '@components/Header/components/ToggleTheme/types';
 
 export const ToggleLabel = styled.label<ToggleLabelProps>`
   cursor: pointer;
@@ -26,8 +24,8 @@ export const ToggleLabel = styled.label<ToggleLabelProps>`
     transition: 0.3s;
   }
 
-  ${({ $isDarkTheme }) =>
-    $isDarkTheme &&
+  ${({ isDarkTheme }) =>
+    isDarkTheme &&
     css`
       background: ${({ theme }) => theme.colors.green.DEFAULT};
       &:after {
