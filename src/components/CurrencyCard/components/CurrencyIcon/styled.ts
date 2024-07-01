@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
+import { CurrencyIconWrapperType } from '@components/CurrencyCard/components/CurrencyIcon/types';
 import { device } from '@styled/breakPoints';
 
-export const CurrencyIconStyled = styled.div`
+export const CurrencyIconWrapper = styled.div<CurrencyIconWrapperType>`
   border-radius: 8px;
   width: 80px;
   height: 80px;
-  background: ${({ $bgColor }) => $bgColor};
+  background: ${({ bgColor }) => bgColor};
   font-size: 35px;
   display: flex;
   justify-content: center;

@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
+import { CurrencyCardWrapperType } from '@components/CurrencyCard/types';
 import { device } from '@styled/breakPoints';
 
-export const CurrencyCardStyled = styled.article`
+export const CurrencyCardWrapper = styled.article<CurrencyCardWrapperType>`
   width: 45%;
   display: flex;
-  cursor: ${({ $isDynamicCard }) => ($isDynamicCard ? 'pointer' : 'auto')};
+  cursor: ${({ isDynamicCard }) => (isDynamicCard ? 'pointer' : 'auto')};
   border-radius: 8px;
   align-items: center;
   flex-direction: row;
