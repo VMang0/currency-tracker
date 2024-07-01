@@ -1,59 +1,43 @@
 import { FC, useState } from 'react';
 
-import {
-  ArrowStyled,
-  SelectInputStyled,
-  SelectListItemStyled,
-  SelectListStyled,
-  SelectStyled,
-} from '@components/Select/styled';
+import { Arrow, SelectInput, SelectList, SelectListItem, SelectWrapper } from '@components/Select/styled';
+import { OptionType, SelectPropsType } from '@components/Select/types';
 
-import { DATA_TEST_ID } from '../../../cypress/e2e/data.ts';
-
-type OptionType = {
-  value: string;
-  label: string;
-};
-
-type SelectPropsType = {
-  options: OptionType[];
-  setChooseItem: () => void;
-  initialOption: OptionType;
-};
+import { DATA_TEST_ID } from '../../../cypress/e2e/data';
 
 export const Select: FC<SelectPropsType> = ({ options, setChooseItem, initialOption }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(initialOption);
 
   const toggleOptions = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((prevIsOpen) => !prevIsOpen);
   };
 
-  const handleOptionClick = (item) => {
+  const handleOptionClick = (item: OptionType) => {
     setChooseItem(item.value);
     setSelectedOption(item);
     setIsOpen(false);
   };
 
   return (
-    <SelectStyled data-test-id={DATA_TEST_ID.SELECT}>
-      <SelectInputStyled $isOpen={isOpen} onClick={() => toggleOptions()} data-test-id={DATA_TEST_ID.SELECT_INPUT}>
+    <SelectWrapper data-test-id={DATA_TEST_ID.SELECT}>
+      <SelectInput isOpen={isOpen} onClick={toggleOptions} data-test-id={DATA_TEST_ID.SELECT_INPUT}>
         {selectedOption.label}
-        <ArrowStyled $isOpen={isOpen} />
-      </SelectInputStyled>
+        <Arrow />
+      </SelectInput>
       {isOpen && (
-        <SelectListStyled data-test-id={DATA_TEST_ID.SELECT_LIST}>
+        <SelectList data-test-id={DATA_TEST_ID.SELECT_LIST}>
           {options.map((option) => (
-            <SelectListItemStyled
+            <SelectListItem
               key={option.value}
               onClick={() => handleOptionClick(option)}
               data-test-id={`select-item-${option.value}`}
             >
               {option.label}
-            </SelectListItemStyled>
+            </SelectListItem>
           ))}
-        </SelectListStyled>
+        </SelectList>
       )}
-    </SelectStyled>
+    </SelectWrapper>
   );
 };
