@@ -1,9 +1,9 @@
-import { LastUpdated } from '@components/WelcomeSection/LastUpdated';
-import { WelcomeHeader } from '@components/WelcomeSection/WelcomeHeader';
-import { FlexColumn } from '@styled/components/layout';
+import { LastUpdated } from '@components/WelcomeSection/components/LastUpdated';
+import { WelcomeHeader } from '@components/WelcomeSection/components/WelcomeHeader';
+import { FlexColumn } from '@styled/components/layout/styled';
 
 export const WelcomeSection = () => (
-  <FlexColumn $gap="l">
+  <FlexColumn gap="l">
     <WelcomeHeader />
     <LastUpdated />
   </FlexColumn>

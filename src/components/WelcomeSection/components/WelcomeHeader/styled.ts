@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
 import { device } from '@styled/breakPoints';
-import { FlexColumn } from '@styled/components/layout';
+import { FlexColumn } from '@styled/components/layout/styled';
 
-export const WelcomeHeaderStyled = styled.div`
+export const WelcomeHeaderWrapper = styled.div`
   background: ${({ theme }) => theme.gradient[100]};
 `;
 
-export const WelcomeHeaderContentStyled = styled.div`
+export const WelcomeHeaderContent = styled.div`
   display: flex;
   margin: 0 auto;
   box-sizing: border-box;
@@ -20,7 +20,7 @@ export const WelcomeHeaderContentStyled = styled.div`
   }
 `;
 
-export const TitleWrapperStyled = styled(FlexColumn)`
+export const TitleWrapper = styled(FlexColumn)`
   align-items: end;
   @media (${device.md}) {
     align-items: center;
