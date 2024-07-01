@@ -1,40 +1,26 @@
-import { useEffect, ReactNode, FC } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { FC } from 'react';
+import { useSelector } from 'react-redux';
 
-import { BackgroundStyled } from '@components/CurrencyModal/styled';
+import { Background } from '@components/CurrencyModal/styled';
+import { CurrencyModalPropsType } from '@components/CurrencyModal/types';
 import { Portal } from '@components/Portal';
-import { closeModal, isModalOpenSelector } from '@redux/slices/windowSlice';
-import { AppDispatch } from '@redux/store';
+import { useAppDispatch } from '@hooks/useAppDispatch';
+import { useBodyOverflow } from '@hooks/useBodyOverflow';
+import { closeModal } from '@redux/slices/windowSlice';
+import { isModalOpenSelector } from '@redux/slices/windowSlice/selectors';
 
-type CurrencyModalProps = {
-  children: ReactNode;
-};
+export const CurrencyModal: FC<CurrencyModalPropsType> = ({ children }) => {
+  const dispatch = useAppDispatch();
+  const isModalOpen = useSelector(isModalOpenSelector);
 
-export const CurrencyModal: FC<CurrencyModalProps> = ({ children }) => {
-  const dispatch = useDispatch<AppDispatch>();
-  const isOpen = useSelector(isModalOpenSelector);
+  const handleCloseModal = () => dispatch(closeModal());
 
-  const close = () => {
-    dispatch(closeModal());
-  };
-
-  useEffect(() => {
-    const body = document.querySelector('body');
-    if (isOpen) {
-      body.style.overflow = 'hidden';
-    } else {
-      body.style.overflow = 'auto';
-    }
-
-    return () => {
-      body.style.overflow = 'auto';
-    };
-  }, [isOpen]);
+  useBodyOverflow(isModalOpen);
 
   return (
-    isOpen && (
+    isModalOpen && (
       <Portal>
-        <BackgroundStyled onClick={close}>{children}</BackgroundStyled>
+        <Background onClick={handleCloseModal}>{children}</Background>
       </Portal>
     )
   );
