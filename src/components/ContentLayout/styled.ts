@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { device } from '@styled/breakPoints';
 
-export const ContentLayoutStyled = styled.div`
+export const ContentLayoutWrapper = styled.div`
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -12,7 +12,7 @@ export const ContentLayoutStyled = styled.div`
   }
 `;
 
-export const PageWrapperStyled = styled.main`
+export const PageWrapper = styled.main`
   width: 100%;
   display: flex;
   margin: 0 auto;
