@@ -1,7 +1,7 @@
-import { CircleStyled, ImpulseBadgeStyled } from '@components/ImpulseBadge/styled';
+import { Circle, ImpulseBadgeWrapper } from '@components/ImpulseBadge/styled';
 
 export const ImpulseBadge = () => (
-  <ImpulseBadgeStyled>
-    <CircleStyled />
-  </ImpulseBadgeStyled>
+  <ImpulseBadgeWrapper>
+    <Circle />
+  </ImpulseBadgeWrapper>
 );

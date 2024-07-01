@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledLoader = styled.span`
+export const LoaderWrapper = styled.span`
   margin: 0 auto;
   transform: rotateZ(45deg);
   perspective: 1000px;
