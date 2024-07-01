@@ -8,7 +8,9 @@
     "build": "webpack --mode production",
     "lint": "eslint ./src/**/*.{js,jsx,ts,tsx}",
     "prettier": "prettier --write './src/**/*.{js,jsx,ts,tsx}' && eslint './src/**/*.{js,jsx,ts,tsx}' --fix",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "type-check": "tsc --noEmit",
+    "type-start": "tsc --watch"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.5",
@@ -27,12 +29,15 @@
     "@babel/preset-react": "^7.24.6",
     "@babel/preset-typescript": "^7.24.6",
     "@cypress/react": "^8.0.2",
+    "@emotion/is-prop-valid": "^1.2.2",
     "@svgr/webpack": "^8.1.0",
     "@testing-library/jest-dom": "^6.4.6",
     "@testing-library/react": "^16.0.0",
     "@testing-library/user-event": "^14.5.2",
+    "@types/chart.js": "^2.9.41",
     "@types/mapbox-gl": "^3.1.0",
     "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
     "@types/react-redux": "^7.1.33",
     "@types/styled-components": "^5.1.34",
     "@typescript-eslint/eslint-plugin": "^7.12.0",

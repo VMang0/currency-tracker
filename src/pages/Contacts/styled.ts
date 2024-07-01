@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { device } from '@styled/breakPoints';
 
-export const ContactsStyled = styled.div`
+export const ContactsWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;

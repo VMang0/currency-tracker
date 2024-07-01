@@ -2,17 +2,17 @@ import styled from 'styled-components';
 
 import ArrowDropUp from '@assets/icons/arrow-up-icon.svg';
 
-export const SelectStyled = styled.div`
+export const SelectWrapper = styled.div`
   width: 100%;
   position: relative;
   cursor: pointer;
   box-sizing: border-box;
 `;
 
-export const SelectInputStyled = styled.div`
+export const SelectInput = styled.div<{ isOpen: boolean }>`
   width: 100%;
   height: 44px;
-  border-radius: ${({ $isOpen }) => ($isOpen ? '18px 18px 0 0' : '18px')};
+  border-radius: ${({ isOpen }) => (isOpen ? '18px 18px 0 0' : '18px')};
   border: none;
   padding: 11px 16px;
   font-size: 15px;
@@ -21,12 +21,12 @@ export const SelectInputStyled = styled.div`
     position: absolute;
     right: 10px;
     top: 50%;
-    transform: translate(-50%, -50%) ${({ $isOpen }) => ($isOpen ? 'rotate(0)' : 'rotate(180deg)')};
+    transform: translate(-50%, -50%) ${({ isOpen }) => (isOpen ? 'rotate(0)' : 'rotate(180deg)')};
   }
   box-sizing: border-box;
 `;
 
-export const SelectListStyled = styled.ul`
+export const SelectList = styled.ul`
   top: 44px;
   width: 100%;
   position: absolute;
@@ -37,7 +37,7 @@ export const SelectListStyled = styled.ul`
   z-index: 100;
 `;
 
-export const SelectListItemStyled = styled.li`
+export const SelectListItem = styled.li`
   padding: 11px 16px;
   cursor: pointer;
   font-size: 15px;
@@ -50,7 +50,7 @@ export const SelectListItemStyled = styled.li`
   }
 `;
 
-export const ArrowStyled = styled(ArrowDropUp)`
+export const Arrow = styled(ArrowDropUp)`
   width: 20px;
   path {
     fill: ${({ theme }) => theme.themeColors[700]};

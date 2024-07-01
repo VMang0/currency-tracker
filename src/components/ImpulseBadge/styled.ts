@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-export const ImpulseBadgeStyled = styled.div`
+export const ImpulseBadgeWrapper = styled.div`
   position: relative;
   height: 20px;
   width: 20px;
 `;
 
-export const CircleStyled = styled.div`
+export const Circle = styled.div`
   position: absolute;
   left: 50%;
   top: 50%;

@@ -12,4 +12,6 @@ export enum DATA_TEST_ID {
   SELECT = 'select',
   SELECT_INPUT = 'select-input',
   SELECT_LIST = 'select-list',
+  CONVERTER_INPUT = 'converter-input',
+  RATIO_VALUE = 'ratio-data',
 }

@@ -17,3 +17,15 @@ export const SectionName = styled.div`
     max-width: 100%;
   }
 `;
+
+export const HomeStyled = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.gap.l};
+  @media (${device.lg}) {
+    flex-wrap: wrap;
+    gap: ${({ theme }) => theme.gap.xs};
+    justify-content: center;
+  }
+`;

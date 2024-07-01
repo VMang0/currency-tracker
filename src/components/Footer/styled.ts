@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { device } from '@styled/breakPoints';
 
-export const FooterStyled = styled.footer`
+export const FooterWrapper = styled.footer`
   width: 100%;
   display: flex;
   margin: auto;
@@ -19,7 +19,7 @@ export const FooterStyled = styled.footer`
   }
 `;
 
-export const FooterContentStyled = styled.div`
+export const FooterContent = styled.div`
   display: flex;
   gap: ${({ theme }) => theme.gap.xl};
   @media (${device.lg}) {
@@ -28,7 +28,7 @@ export const FooterContentStyled = styled.div`
   }
 `;
 
-export const LogoWrapperStyled = styled.div`
+export const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.gap.xs};

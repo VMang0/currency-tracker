@@ -1,18 +1,8 @@
 import React, { Component } from 'react';
 
+import { NotificationContainer, NotificationWrapper } from '@components/Notification/styled';
+import { NotificationProps, NotificationState } from '@components/Notification/types';
 import notificationService from '@services/notification';
-import './index.css';
-
-type NotificationMessage = {
-  id: number;
-  message: string;
-};
-
-type NotificationState = {
-  notifications: NotificationMessage | null;
-};
-
-type NotificationProps = object;
 
 class Notification extends Component<NotificationProps, NotificationState> {
   constructor(props: NotificationProps) {
@@ -47,13 +37,9 @@ class Notification extends Component<NotificationProps, NotificationState> {
     const { notifications } = this.state;
 
     return (
-      <div className="notification-container">
-        {notifications && (
-          <div key={notifications.id} className="notification">
-            {notifications.message}
-          </div>
-        )}
-      </div>
+      <NotificationContainer>
+        {notifications && <NotificationWrapper key={notifications.id}>{notifications.message}</NotificationWrapper>}
+      </NotificationContainer>
     );
   }
 }

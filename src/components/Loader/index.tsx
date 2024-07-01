@@ -1,5 +1,5 @@
-import { StyledLoader } from '@components/Loader/styled';
+import { LoaderWrapper } from '@components/Loader/styled';
 
-import { DATA_TEST_ID } from '../../../cypress/e2e/data.ts';
+import { DATA_TEST_ID } from '../../../cypress/e2e/data';
 
-export const Loader = () => <StyledLoader data-test-id={DATA_TEST_ID.LOADER} />;
+export const Loader = () => <LoaderWrapper data-test-id={DATA_TEST_ID.LOADER} />;

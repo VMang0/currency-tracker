@@ -11,7 +11,7 @@ export const currencyColors = [
   '#494F57',
   '#4D505B',
   '#3D2E28',
-];
+] as const;
 
 export const staticCardData = [
   {

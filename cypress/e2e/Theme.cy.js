@@ -1,7 +1,7 @@
 import { Path } from '@constants/path';
 import { DATA_TEST_ID } from './data';
 
-describe('Theme Redux Slice', () => {
+describe('Theme toggle test', () => {
   beforeEach(() => {
     cy.visit(Path.HOME);
   });

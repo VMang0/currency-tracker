@@ -26,7 +26,7 @@ module.exports = (env, argv) => {
         '@routes': path.resolve(__dirname, 'src/routes'),
         '@services': path.resolve(__dirname, 'src/services'),
         '@api': path.resolve(__dirname, 'src/api'),
-        '@types': path.resolve(__dirname, 'src/types'),
+        '@type': path.resolve(__dirname, 'src/type'),
       }
     },
     module: {
