@@ -1,7 +1,8 @@
 import { Path } from '@constants/path';
 import { DATA_TEST_ID } from './data';
+import { theme } from '@styled/theme';
 
-describe('Theme Redux Slice', () => {
+describe('Theme toggle test', () => {
   beforeEach(() => {
     cy.visit(Path.HOME);
   });
@@ -12,12 +13,12 @@ describe('Theme Redux Slice', () => {
 
   it('should change theme when toggling', () => {
     cy.get(`[data-test-id=${DATA_TEST_ID.TOGGLE_THEME}]`).click();
-    cy.get('body').should('have.css', 'background-color', 'rgb(252, 252, 252)');
+    cy.get('body').should('have.css', 'background-color', theme.colors.gray.DEFAULT);
   });
 
   it('should remember selected theme after page reload', () => {
     cy.get(`[data-test-id=${DATA_TEST_ID.TOGGLE_THEME}]`).click();
     cy.reload();
-    cy.get('body').should('have.css', 'background-color', 'rgb(252, 252, 252)');
+    cy.get('body').should('have.css', 'background-color', theme.colors.gray.DEFAULT);
   });
 });
