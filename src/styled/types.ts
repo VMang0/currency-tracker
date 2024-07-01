@@ -29,60 +29,60 @@ type ColorsType = {
 };
 
 type GapsType = {
-  xxs: string;
-  xs: string;
-  s: string;
-  m: string;
-  l: string;
-  xl: string;
-  xxl: string;
+  xxs: '10px';
+  xs: '20px';
+  s: '24px';
+  m: '40px';
+  l: '50px';
+  xl: '60px';
+  xxl: '110px';
 };
 
 type FontSizesType = {
-  xxxs: string;
-  xxs: string;
-  xs: string;
-  s: string;
-  m: string;
-  l: string;
-  xl: string;
-  xxl: string;
-  xxxl: string;
-  exl: string;
+  xxxs: '16px';
+  xxs: '20px';
+  xs: '25px';
+  s: '28px';
+  m: '32px';
+  l: '35px';
+  xl: '38px';
+  xxl: '60px';
+  xxxl: '76px';
+  exl: '90px';
 };
 
 type WidthType = {
-  max: string;
+  max: '1440px';
 };
 
 type FontType = {
-  main: string;
-  secondary: string;
+  main: 'Poppins, sans-serif';
+  secondary: 'Inter, sans-serif';
 };
 
 type LogoSize = {
-  s: string;
-  xl: string;
+  s: '45px';
+  xl: '345px';
 };
 
 type LineHeightType = {
-  xs: string;
-  s: string;
-  m: string;
-  l: string;
+  xs: '100%';
+  s: '120%';
+  m: '150%';
+  l: '187%';
 };
 
 type SpacesType = {
-  xxxs: string;
-  xxs: string;
-  xs: string;
-  s: string;
-  m: string;
-  l: string;
-  xl: string;
-  xxl: string;
-  xxxl: string;
-  exl: string;
+  xxxs: '10px';
+  xxs: '15px';
+  xs: '25px';
+  s: '30px';
+  m: '33px';
+  l: '40px';
+  xl: '45px';
+  xxl: '50px';
+  xxxl: '90px';
+  exl: '100px';
 };
 
 export type ThemeColorsType = {
