@@ -45,7 +45,7 @@ module.exports = {
           ['@routes', './src/routes'],
           ['@services', './src/services'],
           ['@api', './src/api'],
-          ['@types', './src/types'],
+          ['@type', './src/type'],
         ],
         extensions: ['.ts', '.tsx', '.js', '.jsx'],
       },
@@ -59,6 +59,7 @@ module.exports = {
     'react/prop-types': 'off',
     'react/state-in-constructor': 'off',
     'react/jsx-props-no-spreading': 'off',
+    'react/display-name': 'off',
     'react/function-component-definition': [
       2,
       {
@@ -82,5 +83,19 @@ module.exports = {
     'no-shadow': 'off',
     'no-param-reassign': 'off',
     'lines-between-class-members': 'off',
+    'no-unsafe-optional-chaining': 'off',
+    'class-methods-use-this': 'off',
+    'import/extensions': [
+      'error',
+      'always',
+      {
+        'ts': 'never',
+        'tsx': 'never',
+        'js': 'never',
+        'jsx': 'never',
+        'json': 'always',
+        'cjs': 'never',
+      },
+    ],
   },
 };

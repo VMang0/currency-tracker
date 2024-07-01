@@ -1,8 +1,11 @@
 {
   "compilerOptions": {
     "lib": ["es2017", "dom"],
+    "noEmitOnError": true,
     "target": "ES6",
     "module": "ESNext",
+    "moduleResolution": "node",
+    "types": ["node"],
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -20,9 +23,9 @@
       "@routes/*": ["src/routes/*"],
       "@services/*": ["src/services/*"],
       "@api/*": ["src/api/*"],
-      "@types/*": ["src/types/*"],
+      "@type/*": ["src/type/*"],
     },
-    "jsx": "react"
+    "jsx": "react-jsx",
   },
   "include": ["src", "tests", "cypress"],
   "exclude": ["node_modules", "dist"]
