@@ -1,7 +1,7 @@
 import { AxiosResponse } from 'axios';
 
 import { currencyAxios } from '@api/axios/currency';
-import { ConverterParamsType } from '@types/converter';
+import { ConverterParamsType } from '@type/converter';
 import { handleError } from '@utils/helpers/errorHandler';
 
 const currencyApiKey = process.env.REACT_APP_CURRENCY_API_KEY as string;

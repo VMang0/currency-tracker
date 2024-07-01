@@ -1,12 +1,12 @@
 import { mapBoxAxios } from '@api/axios/mapBox';
 import { BanksFetchResponseType, CoordinatesType } from '@api/banks/types';
-import { BanksType } from '@types/banks';
+import { BanksType } from '@type/banks';
 import { addCurrenciesToBanks } from '@utils/helpers/addCurrenciesToBanks';
 import { handleError } from '@utils/helpers/errorHandler';
 
 const mapApiAccessToken = process.env.REACT_APP_MAP_BOX_API_KEY as string;
 
-export const fetchBanks = async ({ long, lat }: CoordinatesType): Promise<BanksType> => {
+export const fetchBanks = async ({ long, lat }: CoordinatesType): Promise<BanksType[]> => {
   try {
     const { data } = await mapBoxAxios.get(
       `https://api.mapbox.com/search/searchbox/v1/category/bank?access_token=${mapApiAccessToken}&language=
