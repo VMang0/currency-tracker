@@ -1,26 +1,22 @@
 import { FC } from 'react';
-import { useSelector } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
+import { Routes } from '@components/AppRouter';
 import Notification from '@components/Notification';
-import { Theme } from '@constants/theme';
-import { themeSelector } from '@redux/slices/themeSlice';
-import { Routes } from '@routes/routes';
+import { Portal } from '@components/Portal';
+import { useTheme } from '@hooks/useTheme';
 import { GlobalStyles } from '@styled/global';
-import { darkTheme, lightTheme } from '@styled/theme';
 
 export const App: FC = () => {
-  const theme = useSelector(themeSelector);
-  const isDarkTheme = theme === Theme.DARK;
+  const { currentTheme } = useTheme();
 
   return (
-    <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
+    <ThemeProvider theme={currentTheme}>
       <GlobalStyles />
-      <Notification />
-      <BrowserRouter>
-        <Routes />
-      </BrowserRouter>
+      <Portal>
+        <Notification />
+      </Portal>
+      <Routes />
     </ThemeProvider>
   );
 };
