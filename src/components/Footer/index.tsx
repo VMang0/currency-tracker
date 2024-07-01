@@ -1,26 +1,26 @@
-import { FooterNavigation } from '@components/Footer/FooterNavigation';
-import { FooterContentStyled, FooterStyled, LogoWrapperStyled } from '@components/Footer/styled';
-import { FlexColumn } from '@styled/components/layout';
-import { LogoStyled } from '@styled/components/logo';
-import { SubTitle, Text } from '@styled/components/typography ';
+import { FooterNavigation } from '@components/Footer/components/FooterNavigation';
+import { FooterContent, FooterWrapper, LogoWrapper } from '@components/Footer/styled';
+import { FlexColumn } from '@styled/components/layout/styled';
+import { Logo } from '@styled/components/logo/styled';
+import { SubTitle, Text } from '@styled/components/typography/styled';
 
 export const Footer = () => (
-  <FooterStyled>
-    <FooterContentStyled>
+  <FooterWrapper>
+    <FooterContent>
       <FlexColumn>
-        <LogoWrapperStyled>
-          <LogoStyled />
+        <LogoWrapper>
+          <Logo />
           <SubTitle size="xs">Modsen Currency Tracker</SubTitle>
-        </LogoWrapperStyled>
-        <Text size="xs" $isLeftAlign>
+        </LogoWrapper>
+        <Text size="xs" isLeftAlign>
           Since then, the company has grown organically to. Starsup is the worlds largest trading platform, with $12
           billion worth of currency trading and 500,000 tickets sold daily to tens of thousands of traders worldwide.
         </Text>
       </FlexColumn>
       <FooterNavigation />
-    </FooterContentStyled>
-    <Text color="400" size="xs">
+    </FooterContent>
+    <Text color={400} size="xs">
       Startsup © Vmang0 2023-2024, All Rights Reserved
     </Text>
-  </FooterStyled>
+  </FooterWrapper>
 );
