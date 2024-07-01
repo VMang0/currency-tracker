@@ -1,32 +1,30 @@
-import mapboxgl from 'mapbox-gl';
-import React, { Component } from 'react';
+import mapboxgl, { Marker } from 'mapbox-gl';
+import { Component, createRef, RefObject } from 'react';
+import { connect } from 'react-redux';
 
-import { fetchBanks } from '@api/banks';
+import { fetchBanks } from '@api/banks/fetchBanks';
+import { MapStyled } from '@pages/BankCard/components/Map/styled';
+import { MapPropsType, MapStateType } from '@pages/BankCard/components/Map/types';
+import { RootState } from '@redux/store';
 import { theme } from '@styled/theme';
-
-type MapPropsType = {
-  searchQuery: string;
-};
-
-type MapStateType = {
-  longitude: number;
-  latitude: number;
-  initialized: boolean;
-  map: mapboxgl.Map | null;
-  banks: Array<{ longitude: number; latitude: number; info: string; currencies: string[] }>;
-  markers: mapboxgl.Marker[];
-};
+import { BanksType } from '@type/banks';
 
 class Map extends Component<MapPropsType, MapStateType> {
-  mapContainerRef = React.createRef();
-  state = {
-    longitude: 27.5667,
-    latitude: 53.9,
-    initialized: false,
-    map: null,
-    banks: [],
-    markers: [],
-  };
+  mapContainerRef: RefObject<HTMLDivElement>;
+  markers: Marker[];
+
+  constructor(props: MapPropsType) {
+    super(props);
+    this.mapContainerRef = createRef();
+    this.markers = [];
+    this.state = {
+      longitude: 27.5667,
+      latitude: 53.9,
+      initialized: false,
+      map: null,
+      banks: [],
+    };
+  }
 
   componentDidMount() {
     this.initializeGeolocation();
@@ -37,6 +35,12 @@ class Map extends Component<MapPropsType, MapStateType> {
     if (searchQuery !== prevProps.searchQuery) {
       this.updateMarkers();
     }
+  }
+
+  componentWillUnmount() {
+    const { map } = this.state;
+    this.removeBankMarkers();
+    map?.remove();
   }
 
   initializeMap = async () => {
@@ -69,7 +73,7 @@ class Map extends Component<MapPropsType, MapStateType> {
     }
   };
 
-  updateMarkers = async () => {
+  updateMarkers = () => {
     this.removeBankMarkers();
     const { banks } = this.state;
     const { searchQuery } = this.props;
@@ -80,15 +84,13 @@ class Map extends Component<MapPropsType, MapStateType> {
   };
 
   removeBankMarkers() {
-    const { markers } = this.state;
-    markers.forEach((marker) => marker.remove());
-    this.setState({ markers: [] });
+    this.markers.map((marker) => marker.remove());
+    this.markers = [];
   }
 
-  addBankMarkers(banks) {
+  addBankMarkers(banks: BanksType[]) {
     const { map } = this.state;
-    const markers: mapboxgl.Marker[] = [];
-
+    if (!map) return;
     banks.forEach((bank) => {
       const marker = new mapboxgl.Marker({ color: theme.colors.green[300] })
         .setLngLat([bank.longitude, bank.latitude])
@@ -99,9 +101,8 @@ class Map extends Component<MapPropsType, MapStateType> {
         `),
         )
         .addTo(map);
-      markers.push(marker);
+      this.markers.push(marker);
     });
-    this.setState({ markers });
   }
 
   initializeGeolocation() {
@@ -121,8 +122,12 @@ class Map extends Component<MapPropsType, MapStateType> {
   }
 
   render() {
-    return <div ref={this.mapContainerRef} style={{ width: '100%', height: '500px' }} />;
+    return <MapStyled ref={this.mapContainerRef} />;
   }
 }
 
-export default Map;
+const mapStateToProps = (state: RootState) => ({
+  searchQuery: state.banks.searchQuery,
+});
+
+export default connect(mapStateToProps)(Map);

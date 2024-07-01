@@ -1,21 +1,21 @@
 import styled from 'styled-components';
 
-import SearchIcon from '@assets/icons/search-icon.svg';
+import Icon from '@assets/icons/search-icon.svg';
 
-export const DropdownStyled = styled.div`
+export const Dropdown = styled.div`
   width: 100%;
   position: relative;
   box-sizing: border-box;
   max-width: 450px;
 `;
 
-export const StyledInputWrapper = styled.div`
+export const InputWrapper = styled.div`
   position: relative;
 `;
 
-export const StyledInput = styled.input`
+export const Input = styled.input`
   width: 100%;
-  border-radius: ${({ $isOpen }) => ($isOpen ? '8px 8px 0 0' : '8px')};
+  border-radius: 8px;
   border: none;
   padding: 19px 20px;
   font-size: 18px;
@@ -55,7 +55,7 @@ export const DropdownItem = styled.li`
   }
 `;
 
-export const SearchIconStyled = styled(SearchIcon)`
+export const SearchIcon = styled(Icon)`
   position: absolute;
   right: 20px;
   top: 19px;
