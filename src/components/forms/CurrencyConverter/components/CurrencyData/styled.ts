@@ -9,7 +9,7 @@ export const CurrencyDataWrapper = styled.div`
 
 export const Ratio = styled.p`
   color: ${({ theme }) => theme.themeColors[400]};
-  font-size: ${({ theme, size }) => theme.fontSize[size] || theme.fontSize.xxxs};
+  font-size: ${({ theme }) => theme.fontSize.xxxs};
 `;
 
 export const CurrencyInput = styled.input`
@@ -17,7 +17,7 @@ export const CurrencyInput = styled.input`
   background-color: transparent;
   border: none;
   color: ${({ theme }) => theme.themeColors[700]};
-  font-size: ${({ theme, size }) => theme.fontSize[size] || theme.fontSize.s};
+  font-size: ${({ theme }) => theme.fontSize.s};
   &:focus {
     outline: none;
   }

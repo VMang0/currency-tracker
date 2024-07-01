@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, FormEvent, useState } from 'react';
 
 import { sendComment } from '@api/comment/sendComment';
 import { FormContainer, Input, Textarea, Label, Button, Form } from '@components/forms/ContactsForm/styled';
@@ -13,12 +13,12 @@ export const ContactsForm = () => {
     comment: '',
   });
 
-  const handleValueChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleValueChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { id, value } = e.target;
     setFormState((prevState) => ({ ...prevState, [id]: value }));
   };
 
-  const handleSendComment = async (e: ChangeEvent<HTMLInputElement>) => {
+  const handleSendComment = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFormState((prevState) => ({ ...prevState, isLoading: true }));
     try {

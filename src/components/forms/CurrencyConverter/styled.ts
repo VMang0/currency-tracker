@@ -24,8 +24,8 @@ export const ModalTitle = styled.h2`
   display: inline-block;
   color: ${({ theme }) => theme.themeColors[700]};
   text-align: start;
-  font-size: ${({ theme, size }) => theme.fontSize[size] || theme.fontSize.s};
-  line-height: ${({ theme, $lineHeight }) => theme.lineHeight[$lineHeight] || theme.lineHeight.m};
+  font-size: ${({ theme }) => theme.fontSize.s};
+  line-height: ${({ theme }) => theme.lineHeight.m};
 `;
 
 export const CurrencyWrapper = styled.div`
