@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import converterReducer from './slices/converterSlice.ts';
-import currencyReducer from './slices/currencySlice.ts';
-import themeReducer from './slices/themeSlice.ts';
-import windowReducer from './slices/windowSlice.ts';
+import banksReducer from '@redux/slices/banksSlice';
+import converterReducer from '@redux/slices/converterSlice';
+import currencyReducer from '@redux/slices/currencySlice';
+import themeReducer from '@redux/slices/themeSlice';
+import timelineReducer from '@redux/slices/timelineSlice';
+import windowReducer from '@redux/slices/windowSlice';
 
 export const store = configureStore({
   reducer: {
@@ -11,9 +13,12 @@ export const store = configureStore({
     currency: currencyReducer,
     window: windowReducer,
     converter: converterReducer,
+    banks: banksReducer,
+    timeline: timelineReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
+export type AppThunk = (dispatch: AppDispatch) => void;

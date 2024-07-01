@@ -1,4 +1,4 @@
-import { CurrencyDataType } from '@types/currency';
+import { CurrencyDataType } from '@type/currency';
 
 export type BankCardInitialStateType = {
   searchQuery: string;

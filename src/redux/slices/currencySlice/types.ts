@@ -1,8 +1,8 @@
-import { CurrenciesType, LatestCurrencyType } from '@types/currency';
+import { CurrenciesType, LatestCurrencyType } from '@type/currency';
 
 export type CurrencySliceInitialStateType = {
   isLoading: boolean;
-  latestCurrencies: Record<string, LatestCurrencyType> | [];
-  currencies: CurrenciesType | [];
+  latestCurrencies: Record<string, LatestCurrencyType>;
+  currencies: CurrenciesType;
   lastUpdatedDate: string;
 };

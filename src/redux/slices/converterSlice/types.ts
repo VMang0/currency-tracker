@@ -1,3 +1,5 @@
+import { CurrencyResponseType } from '@type/currency';
+
 export type ConverterSliceInitialStateType = {
   isLoading: boolean;
   currencyFrom: string;
@@ -5,6 +7,8 @@ export type ConverterSliceInitialStateType = {
   ratio: number;
 };
 
-export type RejectedResponse = {
-  message: string;
-};
+export type RejectedResponse =
+  | {
+      message: string;
+    }
+  | CurrencyResponseType;
