@@ -1,7 +1,6 @@
 import { currencyData } from '@constants/currency';
-import { LatestCurrencyType } from '@types/currency';
 
-const getRandomCurrencies = (values: LatestCurrencyType[], count: number) => {
+const getRandomCurrencies = (values: string[], count: number) => {
   const selectedCurrencies = [];
   const usedIndices = new Set();
 
@@ -21,7 +20,7 @@ const getRandomInt = (min: number, max: number): number => {
 };
 
 export const addCurrenciesToBanks = (): string[] => {
-  const values: LatestCurrencyType[] = currencyData.map((currency) => currency.value);
+  const values: string[] = currencyData.map((currency) => currency.value);
   const randomCount = getRandomInt(2, values.length - 1);
   return getRandomCurrencies(values, randomCount);
 };
