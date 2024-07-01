@@ -1,23 +1,18 @@
-import Chart from 'chart.js/auto';
-import React, { Component, createRef, RefObject } from 'react';
+import Chart, { ChartConfiguration } from 'chart.js/auto';
+import { Component, createRef, RefObject } from 'react';
+import { connect } from 'react-redux';
 
-import { generateConfig } from '@components/Chart/config';
-import { generateCharData } from '@components/Chart/data';
-import { CurrencyHistoryType } from '@components/Chart/type';
+import { Canvas } from '@components/Chart/styled';
+import { BarChartPropsType, BarChartStateType } from '@components/Chart/types';
+import { generateCharData } from '@components/Chart/utils/generateCharData';
+import { generateConfig } from '@components/Chart/utils/generateConfig';
+import { RootState } from '@redux/store';
 import notificationService from '@services/notification';
 
-type BarChartPropsType = {
-  data: CurrencyHistoryType[];
-};
-
-type BarChartStateType = {
-  chartRef: RefObject<HTMLCanvasElement>;
-  chartInstance: Chart | null;
-};
+import { DATA_TEST_ID } from '../../../cypress/e2e/data';
 
 class BarChart extends Component<BarChartPropsType, BarChartStateType> {
   chartRef: RefObject<HTMLCanvasElement> = createRef();
-
   chartInstance: Chart | null = null;
 
   componentDidMount() {
@@ -25,8 +20,8 @@ class BarChart extends Component<BarChartPropsType, BarChartStateType> {
   }
 
   componentDidUpdate(prevProps: BarChartPropsType) {
-    const { data } = this.props;
-    if (data !== prevProps.data) {
+    const { historyData } = this.props;
+    if (historyData !== prevProps.historyData) {
       this.updateChart();
     }
   }
@@ -50,9 +45,10 @@ class BarChart extends Component<BarChartPropsType, BarChartStateType> {
   }
 
   renderChart() {
-    const { data } = this.props;
-    const charData = data && generateCharData(data);
-    const config = data && generateConfig(charData, data);
+    const { historyData } = this.props;
+    if (!historyData) return;
+    const charData: ChartConfiguration['data']['datasets'] = historyData && generateCharData(historyData);
+    const config: ChartConfiguration = historyData && generateConfig(charData, historyData);
     const ctx = this.chartRef.current?.getContext('2d');
     if (ctx) {
       this.chartInstance = new Chart(ctx, config);
@@ -61,8 +57,12 @@ class BarChart extends Component<BarChartPropsType, BarChartStateType> {
   }
 
   render() {
-    return <canvas ref={this.chartRef} style={{ width: '1100px', minHeight: '300px' }} />;
+    return <Canvas ref={this.chartRef} data-test-id={DATA_TEST_ID.BAR_CHART} />;
   }
 }
 
-export default BarChart;
+const mapStateToProps = (state: RootState) => ({
+  historyData: state.timeline.historyData,
+});
+
+export default connect(mapStateToProps)(BarChart);
