@@ -13,7 +13,7 @@ export const Select: FC<SelectPropsType> = ({ options, setChooseItem, initialOpt
     setIsOpen((prevIsOpen) => !prevIsOpen);
   };
 
-  const handleOptionClick = (item: OptionType) => {
+  const handleOptionClick = (item: OptionType) => () => {
     setChooseItem(item.value);
     setSelectedOption(item);
     setIsOpen(false);
@@ -30,7 +30,7 @@ export const Select: FC<SelectPropsType> = ({ options, setChooseItem, initialOpt
           {options.map((option) => (
             <SelectListItem
               key={option.value}
-              onClick={() => handleOptionClick(option)}
+              onClick={handleOptionClick(option)}
               data-test-id={`select-item-${option.value}`}
             >
               {option.label}

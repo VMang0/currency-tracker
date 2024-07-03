@@ -8,7 +8,6 @@ describe('CurrencyConverter', () => {
 
   it('should have correctly ratio', () => {
     cy.get(`[data-test-id=card-item-Euro]`).click();
-    cy.wait(5000);
     cy.get(`[data-test-id=${DATA_TEST_ID.RATIO_VALUE}]`)
       .eq(0)
       .invoke('text')
@@ -20,7 +19,6 @@ describe('CurrencyConverter', () => {
 
   it('should convert currency correctly', () => {
     cy.get(`[data-test-id=card-item-Euro]`).click();
-    cy.wait(5000);
     const newValue = 100;
     const input1Selector = `[data-test-id=${DATA_TEST_ID.CONVERTER_INPUT}]:eq(0)`;
     const input2Selector = `[data-test-id=${DATA_TEST_ID.CONVERTER_INPUT}]:eq(1)`;
