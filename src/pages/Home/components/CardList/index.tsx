@@ -11,9 +11,7 @@ export const CurrencyCardList = () => {
   return (
     <CardListWrapper>
       {currenciesWithoutUSD &&
-        currenciesWithoutUSD.map((item) => (
-          <CurrencyCard key={item} cardData={currencies[item as keyof typeof currencies]} />
-        ))}
+        currenciesWithoutUSD.map((item) => <CurrencyCard key={item} cardData={currencies[item]} />)}
     </CardListWrapper>
   );
 };
