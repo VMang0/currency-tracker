@@ -1,6 +1,6 @@
 import { currencyData } from '@constants/currency';
 
-const getRandomCurrencies = (values: string[], count: number) => {
+export const getRandomCurrencies = (values: string[], count: number) => {
   const selectedCurrencies = [];
   const usedIndices = new Set();
 
@@ -15,7 +15,7 @@ const getRandomCurrencies = (values: string[], count: number) => {
   return selectedCurrencies;
 };
 
-const getRandomInt = (min: number, max: number): number => {
+export const getRandomInt = (min: number, max: number): number => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 

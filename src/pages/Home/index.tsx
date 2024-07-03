@@ -12,14 +12,14 @@ import { CardListWrapper } from '@pages/Home/components/CardList/styled';
 import { HomeStyled, SectionName } from '@pages/Home/styled';
 import { getCachedCurrencies } from '@pages/Home/utils/getCachedCurrencies';
 import { setCurrencies } from '@redux/slices/currencySlice';
-import { isLoadingSelector } from '@redux/slices/currencySlice/selectors';
+import { isCurrenciesLoadingSelector } from '@redux/slices/currencySlice/selectors';
 import { getCurrency } from '@redux/slices/currencySlice/thunks';
 
 import { DATA_TEST_ID } from '../../../cypress/e2e/data';
 
 export const Home = () => {
   const dispatch = useAppDispatch();
-  const isLoading = useSelector(isLoadingSelector);
+  const isCurrenciesLoading = useSelector(isCurrenciesLoadingSelector);
 
   useEffect(() => {
     const cachedCurrencies = getCachedCurrencies();
@@ -32,8 +32,8 @@ export const Home = () => {
 
   return (
     <HomeStyled data-test-id={DATA_TEST_ID.HOME_PAGE}>
-      {isLoading && <Loader />}
-      {!isLoading && (
+      {isCurrenciesLoading && <Loader />}
+      {!isCurrenciesLoading && (
         <>
           <SectionName>Stocks</SectionName>
           <CardListWrapper>

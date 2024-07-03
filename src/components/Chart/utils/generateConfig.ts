@@ -2,6 +2,8 @@ import { ChartConfiguration, ChartTypeRegistry, TooltipItem } from 'chart.js/aut
 
 import { CurrencyHistoryType } from '@components/Chart/types';
 
+type CustomTooltipItem = TooltipItem<keyof ChartTypeRegistry> & { raw: [string, string] };
+
 const STEP_INDEX = 0.001;
 const MIN_VALUE_INDEX = 0.97;
 const MAX_VALUE_INDEX = 1.03;
@@ -35,16 +37,10 @@ export const generateConfig = (
         },
         tooltip: {
           callbacks: {
-            beforeBody: (tooltipItems: TooltipItem<keyof ChartTypeRegistry>[]): string[] => {
-              if (!tooltipItems || tooltipItems.length < 2) {
-                return [];
-              }
-
-              return [
-                `open value: ${tooltipItems[0]?.parsed.y ?? ''}`,
-                `close value: ${tooltipItems[1]?.parsed.y ?? ''}`,
-              ];
-            },
+            beforeBody: (tooltipItems: CustomTooltipItem[]): string[] => [
+              `open value: ${tooltipItems[0]?.raw[0] ?? ''}`,
+              `close value: ${tooltipItems[0]?.raw[1] ?? ''}`,
+            ],
             label: (): string => '',
           },
         },
