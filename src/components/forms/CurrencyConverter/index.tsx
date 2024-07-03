@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, MouseEvent } from 'react';
 import { useSelector } from 'react-redux';
 
 import { CurrencyData } from '@components/forms/CurrencyConverter/components/CurrencyData';
@@ -7,7 +7,6 @@ import { Select } from '@components/Select';
 import { useCurrencyConverter } from '@hooks/useCurrencyConverter';
 import { currenciesSelector } from '@redux/slices/currencySlice/selectors';
 import { convertDataCurrency } from '@utils/helpers/convertDataCurrency';
-import { stopPropagation } from '@utils/helpers/stopPropagation';
 
 export const CurrencyConverter = () => {
   const currencies = useSelector(currenciesSelector);
@@ -22,6 +21,8 @@ export const CurrencyConverter = () => {
     currencyTo,
     ratio,
   } = useCurrencyConverter();
+
+  const stopPropagation = (e: MouseEvent<HTMLDivElement>) => e.stopPropagation();
 
   return (
     <CurrencyModal onClick={stopPropagation}>
